@@ -1,19 +1,28 @@
-1. drag scrolling 
+1. drag scrolling         - [done] 
 
 2. blocks fetching :
-   Can use block height to fetch in reverse eg: first block in display 
+   Can use block height to fetch in reverse eg: first block in display              -[ partially done]
    will have latest block height like 807597 then after that each
    each block will have one less block height i.e 807596,807595.. and so on
 
-3. block infomation display page
+3. Implementing levels of block information:
+   level 1: mouse off, not hovered, should display block height     - [done] 
+   level 2: mouse enter, hovered, should display more information like block hash, number of transaction, nonce and etc   
+   level 3: block pressed, complete block json in a neat format display page
 
+4. direct block fetching by block height (think more about this)
 
-
-
+5. Minor webpage filler: github page link, sources link, name(?)
 
 To fix:
 
-1) new block fetching is not dynamic with respect to the viewport size, 
+1) new block fetching is not dynamic with respect to the viewport size,      -[not done]
    new blocks adding functionality breaks with enough zoom out
 
-2) hover off animation is abrupt, need to make it smooth 
+2) hover off animation is abrupt, need to make it smooth                     -[done]
+
+3) minor scroll bar customizations
+
+4) optimizing adding event listeners to blocks as they are generated, currently using very poor brute force method
+
+5)

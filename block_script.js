@@ -1,3 +1,7 @@
+class block{
+    // contains block hash, block height, number of transactions, transactions details in a list(?), and full json
+    block(){}
+}
 
 
 var block_main = document.getElementById("blocks_main_1")
