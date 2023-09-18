@@ -11,8 +11,7 @@ block_main.addEventListener('mousedown',(e) =>{
     // console.log(e.pageX)
     startX = e.pageX - block_main.offsetLeft
     scrollleft = block_main.scrollLeft
-    var audio = new Audio("sound.mp3");
-    audio.play();
+    
 })
 
 block_main.addEventListener('mouseleave',() =>{
