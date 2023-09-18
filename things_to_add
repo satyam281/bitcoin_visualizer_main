@@ -1,0 +1,19 @@
+1. drag scrolling 
+
+2. blocks fetching :
+   Can use block height to fetch in reverse eg: first block in display 
+   will have latest block height like 807597 then after that each
+   each block will have one less block height i.e 807596,807595.. and so on
+
+3. block infomation display page
+
+
+
+
+
+To fix:
+
+1) new block fetching is not dynamic with respect to the viewport size, 
+   new blocks adding functionality breaks with enough zoom out
+
+2) hover off animation is abrupt, need to make it smooth 
