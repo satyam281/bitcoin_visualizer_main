@@ -6,13 +6,13 @@ function adding_event_listeners(){
     for (let i=0;i<blocks_for_animation.length;i++){
         console.log("in animation loop")
                 blocks_for_animation[i].addEventListener('mouseenter',() =>{
-                    gsap.fromTo(blocks_for_animation[i],{height:"20vh",minWidth:"16vh",width:"16vh"},{height:"40vh",minWidth:"32vh",width:"32vh",duration:0.06})
+                    gsap.to(blocks_for_animation[i],{height:"40vh",minWidth:"32vh",width:"32vh",duration:0.1})
                     console.log("on")
                     var audio = new Audio("sound.mp3");
                     audio.play();
                 })
                 blocks_for_animation[i].addEventListener('mouseleave',() =>{    
-                    gsap.fromTo(blocks_for_animation[i],{height:"40vh",minWidth:"32vh",width:"32vh"},{height:"20vh",minWidth:"16vh",width:"16vh",duration: 0.06})
+                    gsap.to(blocks_for_animation[i],{height:"20vh",minWidth:"20vh",width:"20vh",duration: 0.1})
                     console.log("off")
                 })
             }

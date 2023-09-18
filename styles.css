@@ -61,53 +61,11 @@ body{
     justify-content: center; 
     align-items: center;
     height: 20vh;
-    width: 16vh;
+    width: 20vh;
     min-width: 20vh;
     margin: 10px;
     background-color:#15ff00;
     /* delay: 1000ms; */
     transition: all 0.3s ease;
 }
-@keyframes box_grow{
-    from{ 
-            display: flex;
-            word-break: break-all;
-            padding: 1vh;
-            /* overflow: hidden; */
-            justify-content: center; 
-            align-items: center;
-            height: 20vh;
-            width: 16vh;
-            min-width: 20vh;
-            margin: 10px;
-            background-color:#15ff00;
-        }
-    to{
-            transition-delay: 1000ms;
-            background-color: #86ff7b ;
-            height: 40vh;
-            min-width: 32vh;
-            width: 32vh;
-            margin: 10;
-        }
-    }
-    .block-text{
-        color: beige;
-    }
-    .example::-webkit-scrollbar {
-        display: none;
-    }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-    .example {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-    }
-    /* .block:hover{
-        animation-timing-function: ease-in-out;
-        -webkit-animation-timing-function: ease-in-out;
-        
-        animation:box_grow 500ms 100ms 1 normal forwards ;
-        animation-duration: 500ms;
-        
-    } */
