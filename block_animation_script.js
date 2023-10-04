@@ -163,12 +163,12 @@ async function adding_event_listeners(){
                     b_time.id = "lines"
                     b_time.textContent = "time : " + block_info["time"]
                     main_container.appendChild(b_time)
-    
+                    
                     const transactions = document.createElement("div")
                     transactions.id = "lines"
                     transactions.textContent = "transactions : to be decided"
                     main_container.appendChild(transactions)
-    
+                    
                     popup.appendChild(main_container)
                 })
             }

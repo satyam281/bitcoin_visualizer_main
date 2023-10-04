@@ -143,7 +143,7 @@ p{
             z-index: 2;
             position: relative;
             top: 10vh;
-            height: 89vh;
+            height: 60vh;
             min-width: 80vw;
             /* width: max-content; */
             border-top: 4px solid black;
@@ -157,7 +157,7 @@ p{
 #button1{   
             z-index: 3;
             position: absolute;
-            background-color: rgba(0, 0, 0, 0);
+            background:#f7343456;
             font-size: 3vh;
             top: 0;
             right: 0;
@@ -168,17 +168,19 @@ p{
 #container1{
     backdrop-filter: blur(1000px);
     background-color: #ffffff;
-    height: 89vh;
+    height: inherit;
     width: 80vw;
     display: flex;
     flex-direction: column;
-    gap: 1vh;
+    gap: 0vh;
+    overflow-wrap: break-word;
+    overflow-y: scroll;
 }
 #lines{
     color: #ff9500;
     font-size: 3vw;
-    border: 2px solid black;
-    margin: 1vh;
-    max-width: 32vw;
+    /* border: 2px solid black; */
+    margin: 0.3vh;
+    max-width: 50vw;
 }
 
