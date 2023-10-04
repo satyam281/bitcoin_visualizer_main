@@ -1,28 +1,35 @@
 1. drag scrolling         - [done] 
 
-2. blocks fetching :
-   Can use block height to fetch in reverse eg: first block in display              -[ partially done]
+2. blocks fetching :                                                            -[done]
+   Can use block height to fetch in reverse eg: first block in display              
    will have latest block height like 807597 then after that each
    each block will have one less block height i.e 807596,807595.. and so on
 
 3. Implementing levels of block information:
    level 1: mouse off, not hovered, should display block height     - [done] 
-   level 2: mouse enter, hovered, should display more information like block hash, number of transaction, nonce and etc   
-   level 3: block pressed, complete block json in a neat format display page
+   level 2: mouse enter, hovered, should display more information like block hash, number of transaction, nonce and etc   -[dropped]
+   level 3: block pressed, complete block json in a neat format display page - [partially done]
 
-4. direct block fetching by block height (think more about this)
+4. direct block fetching by block height (think more about this)     - []
 
-5. Minor webpage filler: github page link, sources link, name(?)
+5. Minor webpage filler: github page link, sources link, name(?)     - []
+
+6. Maintain a stack to fetch blocks                                  - []
+   fetching is done at : 
+      block_script 111
+      block_animation_script 106
+      block_animation_script 185
+
 
 To fix:
 
-1) new block fetching is not dynamic with respect to the viewport size,      -[not done]
+1) new blocks appending is not dynamic with respect to the viewport size,      -[not done]
    new blocks adding functionality breaks with enough zoom out
 
 2) hover off animation is abrupt, need to make it smooth                     -[done]
 
-3) minor scroll bar customizations
+3) minor scroll bar customizations                                           - [done]
 
-4) optimizing adding event listeners to blocks as they are generated, currently using very poor brute force method
+4) optimizing adding event listeners to blocks as they are generated, currently using very poor brute force method    - [done]
 
-5)
+5) Everything looks ugly 
