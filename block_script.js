@@ -68,9 +68,11 @@ var blocks ={}
 var blocks_info = []
 
 var previous_block_height = 0
+var latest_block_height;
+console.log(latest_block_height)
 async function first_blocks(){
         console.log("starting to add")
-        var latest_block_height = await latest_block_fetching()
+        latest_block_height = await latest_block_fetching()
         console.log(latest_block_height)
 
         previous_block_height = latest_block_height
@@ -108,13 +110,13 @@ function insert_Blocks(){
         previous_block_height -=1
         console.log(previous_block_height)
         const block_height = previous_block_height
-        var info = block_fetching(block_height)      
+        // var info = block_fetching(block_height)      
         previous_block_height-=1
         const text_stuff = document.createElement("p")
         text_stuff.textContent = block_height 
         newBlock.appendChild(text_stuff)
         
-        blocks[blocks.length] = "!23"
+        // blocks[blocks.length] = "!23"
         // blocks_info.push(block_fetching(block_height))
         newBlock.className = "Block"
         block_main.appendChild(newBlock)

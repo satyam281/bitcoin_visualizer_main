@@ -7,10 +7,13 @@
 <body id="12">
     <div class="header">
         <div class="main-text">BITCOIN CHAIN VISUALIZATION</div>
-        <div class="links">links</div>
+        <a href="https://github.com/satyam281/bitcoin_visualizer_main" target="_blank">
+            <div class="links"><i class="fab fa-github"></i></div>
+        </a>
+        <a href="https://github.com/satyam281/bitcoin_visualizer_main" > </a>
     </div>
     <div class="blocks-box-outside" id="main-outside">
-        <div class="search-bar">Search by block height</div>
+        <input id="search-bar" type="text" placeholder="Search block by height.." onkeydown="getInput"></input>
         <div class="blocks-box-inside" id="blocks_main_1">
               <div class="block" id="1"></div>
               <div class="block" id="2"></div>
@@ -25,6 +28,7 @@
     <script src="block_script.js"></script>
     <script src="block_animation_script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+    <script src="https://kit.fontawesome.com/2055f243f7.js" crossorigin="anonymous"></script> 
+    <script src="search.js" id="search-bar"></script>
 </body> 
 </html>

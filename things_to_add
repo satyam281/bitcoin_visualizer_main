@@ -10,15 +10,18 @@
    level 2: mouse enter, hovered, should display more information like block hash, number of transaction, nonce and etc   -[dropped]
    level 3: block pressed, complete block json in a neat format display page - [partially done]
 
-4. direct block fetching by block height (think more about this)     - []
+4. direct block fetching by block height (think more about this)     - [done]
 
-5. Minor webpage filler: github page link, sources link, name(?)     - []
+5. Minor webpage filler: github page link, sources link, name(?)     - [done]
 
-6. Maintain a stack to fetch blocks                                  - []
+6. Maintain a stack to fetch blocks                                  - [dropped]
    fetching is done at : 
       block_script 111
       block_animation_script 106
       block_animation_script 185
+
+7. add textfile download functionality to download raw json data for all blocks - []
+
 
 
 To fix:
@@ -32,4 +35,10 @@ To fix:
 
 4) optimizing adding event listeners to blocks as they are generated, currently using very poor brute force method    - [done]
 
-5) Everything looks ugly 
+5) Everything looks ugly - [partiallyfixed]
+
+6) Animation at small duration is bugged (0.4~ ms)           -[]
+
+7) Fix bugs in mobile site (using pointer events(?))    -[]
+
+
