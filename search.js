@@ -33,6 +33,21 @@ input.onkeydown = function(e){
                     var block_info = blocks[search_height]["blocks"][0]
                     var main_container = popup_maker(block_info)
                     popup.innerHTML = ""
+                    const get_raw_json_button = document.createElement("button")
+                    get_raw_json_button.id = "raw_json_button"
+                    get_raw_json_button.textContent = "get raw json"
+                    // console.log(get_raw_json_button)
+                    popup.append(get_raw_json_button)
+                    get_raw_json_button.addEventListener("click",()=>{
+                    // console.log(data)
+                        var string_json = JSON.stringify(blocks[search_height],null,2)
+                        var new_page = window.open()
+                        new_page.document.open()
+                        new_page.document.title = search_height +" raw json"
+                        new_page.document.write("<pre>"+string_json+"<pre>")
+                        new_page.document.close()
+                    // new_page.focus()
+                    })
                     popup.appendChild(cut_button)
                     popup.appendChild(main_container)
 
@@ -91,9 +106,24 @@ input.onkeydown = function(e){
                                 background: "#4a81f7fd",
                                 duration:0.44
                     })
-                    var info = block_fetching(search_height).then(data=>{
-                        blocks[search_height] = data
-                        popup.removeChild(text)
+                        const get_raw_json_button = document.createElement("button")
+                        get_raw_json_button.id = "raw_json_button"
+                        get_raw_json_button.textContent = "get raw json"
+                        popup.append(get_raw_json_button)
+                        var info = block_fetching(search_height).then(data=>{
+                            blocks[search_height] = data
+                            popup.removeChild(text)
+
+                            get_raw_json_button.addEventListener("click",()=>{
+                    // console.log(data)
+                                var string_json = JSON.stringify(blocks[search_height],null,2)
+                                var new_page = window.open()
+                                new_page.document.open()
+                                new_page.document.title = search_height +" raw json"
+                                new_page.document.write("<pre>"+string_json+"<pre>")
+                                new_page.document.close()
+                    // new_page.focus()
+                            })
                         
                         var block_info = data["blocks"][0]
                         var main_container = popup_maker(block_info)
