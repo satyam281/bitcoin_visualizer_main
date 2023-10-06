@@ -1,20 +1,3 @@
-class block{
-    // contains block hash, block height, number of transactions, transactions details in a list(?), and full json
-    constructor(hash,value,transactions,date_mined,raw_json){
-        this.hash = hash
-        this.value = value
-        this.transactions = transactions
-        this.date_mined = date_mined
-        this.raw_json = raw_json
-    }
-    
-    print_details(){
-        console.log("hash: "+this.hash)
-        console.log("value: "+this.value)
-        console.log("transactions: "+this.transactions)
-        console.log("date_mined: "+this.date_mined)
-    }
-}
 
 first_blocks()
 var block_main = document.getElementById("blocks_main_1")
@@ -58,6 +41,7 @@ async function block_fetching(block_height){
     const api_key = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkFQSSJ9.eyJhdWQiOiJtZXJjdXJ5IiwidWlkIjoiY2FiNmEyYTgtMmNkYi00NzExLWE4NTctNDhjNmQxYzEwZDQ2IiwiaXNzIjoiYmxvY2tjaGFpbiIsInJkbyI6dHJ1ZSwiaWF0IjoxNjkxNzM0NDkyLCJqdGkiOiIwYTYwM2ExNy1kZmUyLTQwYmEtOGMzYy00ZTUzYzYwZjMxOTgiLCJzZXEiOjY5NjkyNDQsIndkbCI6ZmFsc2V9.IP/IDFLiRx9jfhFtqr2AS20QyzZAqi7DjK6Xvobl9297AWtiC00zwTE2syaGB+sLwmD6ocdV4twjqPX7XbTa7TE="
     headers = {"Authorization":"Bearer"+api_key}
     var response = await fetch(api_url,headers)
+
     // console.log(response)
         // 1212
         if(response!= undefined){

@@ -91,8 +91,6 @@ adding_event_listeners()
 //     cut_button.addEventListener("click",()=>{
 //         body.removeChild(popup)
 //     })
-    
-
 // }
 async function adding_event_listeners(){
     
@@ -123,15 +121,24 @@ async function adding_event_listeners(){
                 var main_container = popup_maker(block_info)
                 popup.innerHTML=""
                 popup.appendChild(main_container)
-
                 const get_raw_json_button = document.createElement("button")
                 get_raw_json_button.id = "raw_json_button"
                 get_raw_json_button.textContent = "get raw json"
                 console.log(get_raw_json_button)
                 popup.append(get_raw_json_button)
+                get_raw_json_button.addEventListener("click",()=>{
+                    // console.log(data)
+                    var string_json = JSON.stringify(blocks[blocks_for_animation[i].id],null,2)
+                    var new_page = window.open()
+                    new_page.document.open()
+                    new_page.document.title = blocks_for_animation[i].id +" raw json"
+                    new_page.document.write("<pre>"+string_json+"<pre>")
+                    new_page.document.close()
+                    // new_page.focus()
+                })
             }
             else{
-
+                
                 const text = document.createElement("div")
                 text.textContent = "loading content...."
                 text.style.fontSize = "5vh"    
@@ -142,14 +149,19 @@ async function adding_event_listeners(){
                 get_raw_json_button.id = "raw_json_button"
                 get_raw_json_button.textContent = "get raw json"
                 console.log(get_raw_json_button)
-                get_raw_json_button.addEventListener("click",()=>{
-                    // location.replace("raw_json_view.html")
-                    console.log("get raw json does nothing right now")
-                })
                 popup.append(get_raw_json_button)
-
+                
                 var info = block_fetching(blocks_for_animation[i].id).then(data=>{
                     popup.removeChild(text)
+                    get_raw_json_button.addEventListener("click",()=>{
+                        console.log(data)
+                        var string_json = JSON.stringify(data,null,2)
+                        var new_page = window.open()
+                        new_page.document.open()
+                        new_page.document.write("<pre>"+string_json+"<pre>")
+                        new_page.document.close()
+                        // new_page.focus()
+                    })
                     blocks[blocks_for_animation[i].id] = data
                     console.log(data)
                     var block_info = blocks[blocks_for_animation[i].id]["blocks"][0]
