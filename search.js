@@ -16,7 +16,7 @@ input.onkeydown = function(e){
         popup.id = "popup"
         const cut_button = document.createElement("button")
         cut_button.id = "button1"
-        cut_button.textContent = "X"
+        cut_button.textContent = "╳"
         cut_button.addEventListener("click",()=>{
                 body.removeChild(popup)
         })

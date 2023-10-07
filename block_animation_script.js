@@ -2,97 +2,35 @@ let previous_blocks_list_length = 0;
 const body = document.getElementById("12")
 var fetch_stack = []
 
+adding_event_listeners()
 function popup_maker(block_info){
 
     const main_container = document.createElement("div")
     main_container.id = "container1"
     main_container.style.display = "flex"
+    var left_strings = ["Bits","Block Index","Fee","Height","Hash","Main chain","Merkle root","Number of transactions","Previous block","Block size","Time"]
+    var right_ids = ["bits","block_index","fee","height","hash","main_chain","mrkl_root","n_tx","previous_block","size","time"]
+    var info = [""]
+    for(var i=0;i<left_strings.length;i++){
+        // var container_name = "inline_container"+i
+        const container_name = document.createElement("div")
+        container_name.className = "inline_container"
+        const left_info = document.createElement("div")
+        left_info.id = "lines_left"
+        left_info.textContent = left_strings[i]+":" 
+        left_info.title = left_strings[i]
+        const right_info = document.createElement("div")
+        right_info.id = "lines_right"
+        right_info.textContent = block_info[right_ids[i]]
+        container_name.appendChild(left_info)
+        container_name.appendChild(right_info)
+        main_container.appendChild(container_name)
+    }
     
-    const bits = document.createElement("div")
-    bits.id = "lines"
-    bits.textContent = "Bits: " + block_info["bits"]
-    main_container.appendChild(bits)
-
-    const block_index = document.createElement("div")
-    block_index.id = "lines"
-    block_index.textContent = "Block index: " + block_info["block_index"]
-    main_container.appendChild(block_index)
-    
-    const fee = document.createElement("div")
-    fee.id = "lines"
-    fee.textContent = "Fee : " + block_info["fee"]
-    main_container.appendChild(fee)
-    
-    const height = document.createElement("div")
-    height.id = "lines"
-    height.textContent = "Height : " + block_info["height"]
-    main_container.appendChild(height)
-    
-    const hash = document.createElement("div")
-    hash.id = "lines"
-    hash.textContent = "Hash : " + block_info["hash"]
-    main_container.appendChild(hash)
-    
-    const main_chain = document.createElement("div")
-    main_chain.id = "lines"
-    main_chain.textContent = "Main chain : " + block_info["main_chain"]
-    main_container.appendChild(main_chain)
-
-    const mrkl_root = document.createElement("div")
-    mrkl_root.id = "lines"
-    mrkl_root.textContent = "Merkle root : " + block_info["mrkl_root"]
-    main_container.appendChild(mrkl_root)
-    
-    const n_tx = document.createElement("div")
-    n_tx.id = "lines"
-    n_tx.textContent = "Number of transactions : " + block_info["n_tx"]
-    main_container.appendChild(n_tx)
-    
-    const previous_block = document.createElement("div")
-    previous_block.id = "lines"
-    previous_block.textContent = "Previous block : " + block_info["prev_block"]
-    main_container.appendChild(previous_block)
-    
-    const b_size = document.createElement("div")
-    b_size.id = "lines"
-    b_size.textContent = "Block size : " + block_info["size"]
-    main_container.appendChild(b_size)         
-    
-    const b_time = document.createElement("div")
-    b_time.id = "lines"
-    b_time.textContent = "Time : " + block_info["time"]
-    main_container.appendChild(b_time)
-    
-    const transactions = document.createElement("div")
-    transactions.id = "lines"
-    transactions.textContent = "Transactions : to be decided"
-    main_container.appendChild(transactions)
-
     return main_container
 }
 
-adding_event_listeners()
-
-// function popup_creator(){
-//     //popup: close existing popups
-//     //close button: create, append to popup
-//     //block fetching: if block present in blocks{} :
-//     //                if block not present in blocks{}; 
-//     if(document.getElementById("popup")!=undefined){
-//                 const existing_popup = document.getElementById("popup")
-//                 body.removeChild(existing_popup)    
-//     }
-//     const popup = document.createElement("div")
-//     popup.id = "popup"
-    
-//     const cut_button = document.createElement("button")
-//     cut_button.id = "button1"
-//     cut_button.textContent = "X"
-//     cut_button.addEventListener("click",()=>{
-//         body.removeChild(popup)
-//     })
-// }
-async function adding_event_listeners(){
+function adding_event_listeners(){
     
     let blocks_for_animation = document.getElementsByClassName("block")
 
@@ -110,7 +48,7 @@ async function adding_event_listeners(){
             popup.id = "popup"
             const cut_button = document.createElement("button")
             cut_button.id = "button1"
-            cut_button.textContent = "X"
+            cut_button.textContent = "╳"
             cut_button.addEventListener("click",()=>{
                 body.removeChild(popup)
             })
@@ -218,7 +156,7 @@ async function adding_event_listeners(){
             //this part shouldn't be here 
         })
         blocks_for_animation[i].addEventListener('mouseleave',() =>{    
-            gsap.to(blocks_for_animation[i],{height:"25vh",minWidth:"25vh",background: "#396afc",width:"25vh",duration: 0.02})
+            gsap.to(blocks_for_animation[i],{height:"25vh",minWidth:"25vh",background: "#2948ff",width:"25vh",duration: 0.02})
             console.log("off")
         })
         blocks_for_animation[i].addEventListener('mouseleave',() =>{    
