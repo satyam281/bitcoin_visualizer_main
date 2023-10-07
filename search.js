@@ -1,4 +1,10 @@
 const input = document.getElementById("search-bar")
+input.addEventListener("mouseenter",()=>{
+    gsap.to(input,{scale:"1.2",duration:0.4})    
+})
+input.addEventListener("mouseleave",()=>{
+    gsap.to(input,{scale:"1",duration:0.2})    
+})
 // input.addEventListener("input",(e)=>{
 //     console.log(e.target.value)
 // })
@@ -20,6 +26,12 @@ input.onkeydown = function(e){
         cut_button.addEventListener("click",()=>{
                 body.removeChild(popup)
         })
+        cut_button.addEventListener("mousedown",()=>{
+                gsap.to(cut_button,{scale:"0.9",duration:"0.5",background:"black"})
+        })
+        cut_button.addEventListener("mouseleave",()=>{
+                gsap.to(cut_button,{scale:"1",background:"#ff3f3f00"})
+        })
         
         // input.value =""
         
@@ -36,6 +48,12 @@ input.onkeydown = function(e){
                     const get_raw_json_button = document.createElement("button")
                     get_raw_json_button.id = "raw_json_button"
                     get_raw_json_button.textContent = "get raw json"
+                    get_raw_json_button.addEventListener("mousedown",()=>{
+                        gsap.to(get_raw_json_button,{scale:"0.9",duration:"0.5",background:"#53B9E4"})
+                    })
+                    get_raw_json_button.addEventListener("mouseleave",()=>{
+                        gsap.to(get_raw_json_button,{scale:"1",background:"#408cbe"})
+                    })
                     // console.log(get_raw_json_button)
                     popup.append(get_raw_json_button)
                     get_raw_json_button.addEventListener("click",()=>{
@@ -109,6 +127,12 @@ input.onkeydown = function(e){
                         const get_raw_json_button = document.createElement("button")
                         get_raw_json_button.id = "raw_json_button"
                         get_raw_json_button.textContent = "get raw json"
+                        get_raw_json_button.addEventListener("mousedown",()=>{
+                            gsap.to(get_raw_json_button,{scale:"0.9",duration:"0.5",background:"#53B9E4"})
+                        })
+                        get_raw_json_button.addEventListener("mouseleave",()=>{
+                            gsap.to(get_raw_json_button,{scale:"1",background:"#408cbe"})
+                        })
                         popup.append(get_raw_json_button)
                         var info = block_fetching(search_height).then(data=>{
                             blocks[search_height] = data
