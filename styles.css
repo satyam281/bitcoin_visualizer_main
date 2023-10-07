@@ -280,7 +280,9 @@ a{  color: #000000;
     transform: rotate(20deg);
     filter: invert(66%) sepia(23%) saturate(3811%) hue-rotate(349deg) brightness(101%) contrast(94%);
 }
-
+#github_logo{
+    /* display: none; */
+}
 .block_heights{
     color: rgb(243, 243, 243);
     font-size: 5vh;

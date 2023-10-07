@@ -12,9 +12,9 @@ bitcoin_logo.addEventListener("mouseleave",()=>{
 })
 
 var github_logo = document.getElementById("github_logo")
-github_logo.title = "github repository for this project"
 github_logo.addEventListener("mouseenter",()=>{
     gsap.to(github_logo,{scale:"1.2",duration:0.2})
+    github_logo.title = "github repository for this project"
 })
 github_logo.addEventListener("mouseleave",()=>{ 
     gsap.to(github_logo,{scale:"1",duration:0.2})
