@@ -94,7 +94,7 @@ body{
 .block{
     box-shadow: 0px 0px 10px;
     display: flex;
-5rgb(0, 0, 0)0px 0px 10px rgb(29, 29, 29);
+/* 5rgb(0, 0, 0)0px 0px 10px rgb(29, 29, 29); */
     word-break: break-all;
     font-size: 3em;
     padding-top:1vh;
@@ -217,7 +217,7 @@ p{
 }
 #raw_json_button:hover{
     background: linear-gradient(to right, #408cbe, #408cbe);
-    box-shadow: 0px 0px 6px  rgb(0, 0, 0);
+    box-shadow: 0px 0px 2px  rgb(0, 0, 0);
 }      
 #container1{
     /* margin-top: 5vh; */

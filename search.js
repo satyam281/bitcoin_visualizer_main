@@ -1,9 +1,9 @@
 const input = document.getElementById("search-bar")
 input.addEventListener("mouseenter",()=>{
-    gsap.to(input,{scale:"1.2",duration:0.4})    
+    gsap.to(input,{scale:"1.2",duration:0.2})    
 })
 input.addEventListener("mouseleave",()=>{
-    gsap.to(input,{scale:"1",duration:0.2})    
+    gsap.to(input,{scale:"1",duration:0.5})    
 })
 // input.addEventListener("input",(e)=>{
 //     console.log(e.target.value)
