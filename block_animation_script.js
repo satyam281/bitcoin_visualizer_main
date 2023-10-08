@@ -185,7 +185,7 @@ function adding_event_listeners(){
             
             blocks_for_animation[i].addEventListener('mouseenter',() =>{
                 gsap.to(blocks_for_animation[i],{height:"40vh",minWidth:"32vh",background: "#6c91ff",width:"32vh",boxShadow:"0px 0px 40px black",duration:0.02})
-                const audio = new Audio("jump_sound.wav");
+                const audio = new Audio("sweet_tick.wav");
                 console.log("on",i)
                 audio.play();
                 
