@@ -1,4 +1,3 @@
-// const { text } = require("express");
 
 first_blocks()
 var block_main = document.getElementById("blocks_main_1")
@@ -87,20 +86,21 @@ function insert_Blocks(){
     var scroll_width = block_main.scrollWidth
     var diff = scroll_width - scroll_left
     var width = block_main.clientWidth
-    console.log(scroll_left,scroll_width)
+    // console.log(scroll_left,scroll_width)
     if(diff<3000){
         // var temp = blocks[blocks.length -1]+1
         // var newBlockID = temp
         const newBlock = document.createElement("block")
         newBlock.id = previous_block_height
+        const block_height = previous_block_height
         previous_block_height -=1
         console.log(previous_block_height)
-        const block_height = previous_block_height
         // var info = block_fetching(block_height)      
-        previous_block_height-=1
+        // previous_block_height-=1
         const text_stuff = document.createElement("div")
         text_stuff.className = "block_heights"
         text_stuff.textContent = block_height 
+        console.log(text_stuff.textContent)
         newBlock.appendChild(text_stuff)
         
         // blocks[blocks.length] = "!23"
