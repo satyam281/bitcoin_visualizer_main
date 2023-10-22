@@ -13,6 +13,7 @@ input.onkeyup = function(e){
     if (KeyCode == 'Enter'){
         console.log("enter removed");
         input.blur();
+        input.style.background = "#111111"
     }
     else{
         console.log("input keyup: not registered")
