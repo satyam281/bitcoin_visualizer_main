@@ -8,6 +8,16 @@ input.addEventListener("mouseleave",()=>{
 // input.addEventListener("input",(e)=>{
 //     console.log(e.target.value)
 // })
+input.onkeyup = function(e){
+    var KeyCode = e.code|| e.key;
+    if (KeyCode == 'Enter'){
+        console.log("enter removed");
+        input.blur();
+    }
+    else{
+        console.log("input keyup: not registered")
+    }
+}
 input.onkeydown = function(e){
 
     var KeyCode = e.code || e.key;
