@@ -21,15 +21,18 @@ body{
     height: 12vh;
     width: 100%;
     /* margin: ; */
+    border: 3px solid black;
     
 }
 .links{
-    position: absolute;
-    right: 0;
-    top: -1vh;
+    /* border: 1px solid black; */
+    position: relative;
+    right:-15vw;
+    top: 0;
+    bottom: 0;
     /* bottom: 0; */
     font-size: 5vh;
-    margin: 5vh;
+    margin: 0vh;
     /* margin-top: 8vh; */
 }
 .links:hover{
