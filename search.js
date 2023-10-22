@@ -5,9 +5,7 @@ input.addEventListener("mouseenter",()=>{
 input.addEventListener("mouseleave",()=>{
     gsap.to(input,{scale:"1",duration:0.5})    
 })
-// input.addEventListener("input",(e)=>{
-//     console.log(e.target.value)
-// })
+
 input.onkeyup = function(e){
     var KeyCode = e.code|| e.key;
     if (KeyCode == 'Enter'){
@@ -56,18 +54,18 @@ input.onkeydown = function(e){
                     var block_info = blocks[search_height]["blocks"][0]
                     var main_container = popup_maker(block_info)
                     popup.innerHTML = ""
-                    const get_raw_json_button = document.createElement("button")
-                    get_raw_json_button.id = "raw_json_button"
-                    get_raw_json_button.textContent = "get raw json"
-                    get_raw_json_button.addEventListener("mousedown",()=>{
-                        gsap.to(get_raw_json_button,{scale:"0.9",duration:"0.5",background:"#53B9E4"})
+                    const raw_json_button = document.createElement("button")
+                    raw_json_button.id = "raw_json_button"
+                    raw_json_button.textContent = "get raw json"
+                    raw_json_button.addEventListener("mousedown",()=>{
+                        gsap.to(raw_json_button,{scale:"0.9",duration:"0.5",background:"#53B9E4"})
                     })
-                    get_raw_json_button.addEventListener("mouseleave",()=>{
-                        gsap.to(get_raw_json_button,{scale:"1",background:"#408cbe"})
+                    raw_json_button.addEventListener("mouseleave",()=>{
+                        gsap.to(raw_json_button,{scale:"1",background:"#408cbe"})
                     })
                     // console.log(get_raw_json_button)
-                    popup.append(get_raw_json_button)
-                    get_raw_json_button.addEventListener("click",()=>{
+                    popup.append(raw_json_button)
+                    raw_json_button.addEventListener("click",()=>{
                     // console.log(data)
                         var string_json = JSON.stringify(blocks[search_height],null,2)
                         var new_page = window.open()
@@ -98,21 +96,18 @@ input.onkeydown = function(e){
                                 background: "#4a81f7fd",
                                 duration:0.44
                     })
-                    console.log("searched block is loaded already")
+                    // console.log("searched block is loaded already")
                     
                 }
                 
             
                 else{
-                    console.log("searched block is not loaded yet")
-
                     const text = document.createElement("div")
                     text.textContent = "loading content...."
                     text.style.fontSize = "5vh"    
                     text.style.marginLeft = "2vh"
                     text.style.marginTop = "2vh"
-                    // popup.innerHTML=""
-                    // popup.appendChild(cut_button)
+                    
                     popup.appendChild(text)
                     popup.appendChild(cut_button)
 
@@ -135,35 +130,46 @@ input.onkeydown = function(e){
                                 background: "#4a81f7fd",
                                 duration:0.44
                     })
-                        const get_raw_json_button = document.createElement("button")
-                        get_raw_json_button.id = "raw_json_button"
-                        get_raw_json_button.textContent = "get raw json"
-                        get_raw_json_button.addEventListener("mousedown",()=>{
-                            gsap.to(get_raw_json_button,{scale:"0.9",duration:"0.5",background:"#53B9E4"})
+                    const raw_json_button = document.createElement("button")
+                    raw_json_button.id = "raw_json_button"
+                    raw_json_button.textContent = "get raw json"
+                    raw_json_button.addEventListener("mousedown",()=>{
+                        gsap.to(raw_json_button,{scale:"0.9",duration:"0.5",background:"#53B9E4"})
+                    })
+                    raw_json_button.addEventListener("mouseleave",()=>{
+                        gsap.to(raw_json_button,{scale:"1",background:"#408cbe"})
+                    })
+                    
+                    raw_json_button.addEventListener("click",()=>{
+                    
+                        var string_json = JSON.stringify(blocks[search_height],null,2)
+                        var new_page = window.open()
+                        new_page.document.open()
+                        new_page.document.title = search_height +" raw json"
+                        new_page.document.write("<pre>"+string_json+"<pre>")
+                        new_page.document.close()
+                    
+                    })
+                
+                    var info = block_fetching(search_height).then(data=>{
+                        blocks[search_height] = data
+                        popup.removeChild(text)
+                        popup.append(raw_json_button)
+                        raw_json_button.addEventListener("click",()=>{
+                    
+                            var string_json = JSON.stringify(blocks[search_height],null,2)
+                            var new_page = window.open()
+                            new_page.document.open()
+                            new_page.document.title = search_height +" raw json"
+                            new_page.document.write("<pre>"+string_json+"<pre>")
+                            new_page.document.close()
+                   
                         })
-                        get_raw_json_button.addEventListener("mouseleave",()=>{
-                            gsap.to(get_raw_json_button,{scale:"1",background:"#408cbe"})
-                        })
-                        popup.append(get_raw_json_button)
-                        var info = block_fetching(search_height).then(data=>{
-                            blocks[search_height] = data
-                            popup.removeChild(text)
-
-                            get_raw_json_button.addEventListener("click",()=>{
-                    // console.log(data)
-                                var string_json = JSON.stringify(blocks[search_height],null,2)
-                                var new_page = window.open()
-                                new_page.document.open()
-                                new_page.document.title = search_height +" raw json"
-                                new_page.document.write("<pre>"+string_json+"<pre>")
-                                new_page.document.close()
-                    // new_page.focus()
-                            })
-                        
-                        var block_info = data["blocks"][0]
-                        var main_container = popup_maker(block_info)
-                        popup.appendChild(main_container)
-                        console.log(data)
+                    
+                    var block_info = data["blocks"][0]
+                    var main_container = popup_maker(block_info)
+                    popup.appendChild(main_container)
+                    console.log(data)
 
                     })
                 }

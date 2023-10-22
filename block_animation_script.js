@@ -47,14 +47,12 @@ function popup_maker(block_info){
     return main_container
 }
 
-
-
 function adding_event_listeners(){
     
     let blocks_for_animation = document.getElementsByClassName("block")
-    
+
     for(let i=previous_blocks_list_length;i<blocks_for_animation.length;i++){
-        
+
         blocks_for_animation[i].addEventListener("click",()=>{
             var pressed_block = blocks_for_animation[i]
             
@@ -64,47 +62,15 @@ function adding_event_listeners(){
             }
             const popup = document.createElement("div")
             popup.id = "popup"
-            const cut_button = document.createElement("button")
-            cut_button.id = "button1"
-            cut_button.textContent = "╳"
-            cut_button.addEventListener("click",()=>{
-                body.removeChild(popup)
-            })
-            cut_button.addEventListener("mousedown",()=>{
-                gsap.to(cut_button,{scale:"0.9",duration:"0.5",background:"black"})
-            })
-            cut_button.addEventListener("mouseleave",()=>{
-                gsap.to(cut_button,{scale:"1",background:"#ff3f3f00"})
-            })
-            //
             
             if(blocks[blocks_for_animation[i].id]!=undefined){
                 var block_info = blocks[blocks_for_animation[i].id]["blocks"][0]
                 var main_container = popup_maker(block_info)
                 popup.innerHTML=""
                 popup.appendChild(main_container)
-                const get_raw_json_button = document.createElement("button")
-                get_raw_json_button.id = "raw_json_button"
-                get_raw_json_button.textContent = "get raw json"
-                get_raw_json_button.addEventListener("mousedown",()=>{
-                    gsap.to(get_raw_json_button,{scale:"0.9",duration:"0.5",background:"#53B9E4"})
-                })
-                get_raw_json_button.addEventListener("mouseleave",()=>{
-                    gsap.to(get_raw_json_button,{scale:"1",background:"#408cbe"})
-                })
-                console.log(get_raw_json_button)
                 popup.append(get_raw_json_button)
-                get_raw_json_button.addEventListener("click",()=>{
-                    // console.log(data)
-                    var string_json = JSON.stringify(blocks[blocks_for_animation[i].id],null,2)
-                    var new_page = window.open()
-                    new_page.document.open()
-                    new_page.document.title = blocks_for_animation[i].id +" raw json"
-                    new_page.document.write("<pre>"+string_json+"<pre>")
-                    new_page.document.close()
-                    // new_page.focus()
-                })
             }
+
             else{
                 
                 const text = document.createElement("div")
@@ -113,20 +79,10 @@ function adding_event_listeners(){
                 text.style.marginLeft = "2vh"
                 text.style.marginTop = "2vh"
                 popup.appendChild(text)
-                const get_raw_json_button = document.createElement("button")
-                get_raw_json_button.id = "raw_json_button"
-                get_raw_json_button.textContent = "get raw json"
-                get_raw_json_button.addEventListener("mousedown",()=>{
-                    gsap.to(get_raw_json_button,{scale:"0.9",duration:"0.5",background:"#53B9E4"})
-                })
-                get_raw_json_button.addEventListener("mouseleave",()=>{
-                    gsap.to(get_raw_json_button,{scale:"1",background:"#408cbe"})
-                })
-                console.log(get_raw_json_button)
-                popup.append(get_raw_json_button)
                 
                 var info = block_fetching(blocks_for_animation[i].id).then(data=>{
                     popup.removeChild(text)
+                    popup.append(get_raw_json_button)
                     get_raw_json_button.addEventListener("click",()=>{
                         console.log(data)
                         var string_json = JSON.stringify(data,null,2)
@@ -147,68 +103,54 @@ function adding_event_listeners(){
             var rect = pressed_block.getBoundingClientRect()
             console.log("top of pressed block is: "+rect.top)
             gsap.from(popup,{height:"0vh",
-            minWidth:"0vw", 
-            background: "#fffffffd",
-            opacity:"0",
-            background: "#fffffffd"
-        })
-        // popup.appendChild(main_container)
-        popup.appendChild(cut_button)
-        body.appendChild(popup)
-        gsap.to(popup,{
-            
-            height: "70vh",
-            // minWidth: "80vw",
-            top:"10vh",
-                                // minWidth:"80vw",
-                                width:"80vw",
-                                background: "#4a81f7fd",
-                                duration:0.2
-                            })
-                            
-                        })
-                        console.log("block pressed!!!!!!!!")
-                        blocks_for_animation[i].addEventListener("mouseenter",()=>{
-                            
-                            if(blocks[blocks_for_animation[i].id]==undefined){
-                                // console.log(blocks)
-                                // var info = block_fetching(blocks_for_animation[i].id).then(data=>{
-                                    //     blocks[blocks_for_animation[i].id] = data 
-                    //     console.log(blocks_for_animation[i].id+" fetched")
-                    // }) 
-                }
-                else{
-                    console.log("already fetched")
-                }
+                minWidth:"0vw", 
+                background: "#fffffffd",
+                opacity:"0",
+                background: "#fffffffd"
             })
+        // popup.appendChild(main_container)
+            popup.appendChild(cut_button)
+            body.appendChild(popup)
+            gsap.to(popup,{
+                height: "70vh",
+                top:"10vh",
+                width:"80vw",
+                background: "#4a81f7fd",
+                duration:0.2})
+            })
+            
+            // blocks_for_animation[i].addEventListener("mouseenter",()=>{                
+            //     if(blocks[blocks_for_animation[i].id]==undefined){}
+            //     else{
+            //         // console.log("already fetched")
+            //     }
+            // })
             
             blocks_for_animation[i].addEventListener('mouseenter',() =>{
                 gsap.to(blocks_for_animation[i],{height:"40vh",minWidth:"32vh",background: "#6c91ff",width:"32vh",boxShadow:"0px 0px 40px black",duration:0.02})
                 const audio = new Audio("sweet_tick.wav");
                 console.log("on",i)
-                audio.play();
-                
-                //this part shouldn't be here 
+                audio.play();     
             })
             
             blocks_for_animation[i].addEventListener("mousedown",()=>{
-                console.log("block downed")
-                // gsap.to(blocks_for_animation[i],{height:"38vh",minWidth:"30vh",background: "#000046",width:"25vh",duration: 0})
+                // console.log("block downed")
+            })
+
+            blocks_for_animation[i].addEventListener('mouseleave',() =>{    
+                gsap.to(blocks_for_animation[i],{height:"25vh",minWidth:"25vh",background: "#2948ff",width:"25vh",boxShadow:"0px 0px 0px black",duration: 0.02})
+                console.log("off")
             })
             blocks_for_animation[i].addEventListener('mouseleave',() =>{    
-            gsap.to(blocks_for_animation[i],{height:"25vh",minWidth:"25vh",background: "#2948ff",width:"25vh",boxShadow:"0px 0px 0px black",duration: 0.02})
-            console.log("off")
-        })
-        blocks_for_animation[i].addEventListener('mouseleave',() =>{    
-            blocks_for_animation[i].innerHTML = ""
-            var tempelement = document.createElement("p")
-            tempelement.textContent = blocks_for_animation[i].id
-            tempelement.className = "block_heights"
-            blocks_for_animation[i].appendChild(tempelement)
+                blocks_for_animation[i].innerHTML = ""
+                var tempelement = document.createElement("p")
+                tempelement.textContent = blocks_for_animation[i].id
+                tempelement.className = "block_heights"
+                blocks_for_animation[i].appendChild(tempelement)
             
-        })
+            })
         
-        previous_blocks_list_length = blocks_for_animation.length;      
+            previous_blocks_list_length = blocks_for_animation.length;      
     }
 }
 
