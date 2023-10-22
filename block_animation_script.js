@@ -163,7 +163,7 @@ function adding_event_listeners(){
                                 // minWidth:"80vw",
                                 width:"80vw",
                                 background: "#4a81f7fd",
-                                duration:0.44
+                                duration:0.2
                             })
                             
                         })
@@ -176,7 +176,6 @@ function adding_event_listeners(){
                                     //     blocks[blocks_for_animation[i].id] = data 
                     //     console.log(blocks_for_animation[i].id+" fetched")
                     // }) 
-                    console.log("hopefully doesn't break anything")   
                 }
                 else{
                     console.log("already fetched")
@@ -194,7 +193,7 @@ function adding_event_listeners(){
             
             blocks_for_animation[i].addEventListener("mousedown",()=>{
                 console.log("block downed")
-                gsap.to(blocks_for_animation[i],{height:"38vh",minWidth:"30vh",background: "#000046",width:"25vh",duration: 0.06})
+                // gsap.to(blocks_for_animation[i],{height:"38vh",minWidth:"30vh",background: "#000046",width:"25vh",duration: 0})
             })
             blocks_for_animation[i].addEventListener('mouseleave',() =>{    
             gsap.to(blocks_for_animation[i],{height:"25vh",minWidth:"25vh",background: "#2948ff",width:"25vh",boxShadow:"0px 0px 0px black",duration: 0.02})

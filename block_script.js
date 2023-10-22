@@ -86,7 +86,7 @@ function insert_Blocks(){
     var scroll_width = block_main.scrollWidth
     var diff = scroll_width - scroll_left
     var width = block_main.clientWidth
-    // console.log(scroll_left,scroll_width)
+    console.log(scroll_left,scroll_width)
     if(diff<3000){
         // var temp = blocks[blocks.length -1]+1
         // var newBlockID = temp
