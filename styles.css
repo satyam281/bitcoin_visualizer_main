@@ -15,21 +15,28 @@ body{
     background: linear-gradient(to right, #5988a8, #5988a8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     z-index: 1;
     box-shadow: 0px 0px 10px 1px;
-    display: flex;
+    display: inline-grid;
+    grid-template-columns:  1fr [bitcoinLogo]1.5fr  6fr  [githubLogo]1.5fr 1fr;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     height: 12vh;
     width: 100%;
+
     /* margin: ; */
     /* border: 3px solid black; */
     
 }
 .links{
-    /* border: 1px solid black; */
-    position: absolute;
-    right: 0;
+    grid-column-start: 5;
+    grid-column-end: 5;
+    justify-self: center;
+    align-self: center;
+    border: 1px solid black;
+    /* position: absolute; */
+    /* right: 10px; */
+    
     top: 3.5vh;
-    bottom: 0;
+    
     /* bottom: 0; */
     font-size: 5vh;
     margin: 0vh;
@@ -39,6 +46,12 @@ body{
     color: rgb(63, 63, 63);
 }
 .main-text{
+    grid-column-start: 3;
+    grid-column-end: 3;
+    justify-self: center;
+    align-self: center;
+    overflow-wrap: break-word;
+    text-align: center;
     font-family: anaheim;
     font-weight: 800;
     font-size: 4vw;
@@ -265,7 +278,12 @@ p{
 a{  color: #000000;
     text-decoration:none ;
 }
+#bitcoinBox{
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
  #bitcoinLogo{
+    
     display: inline-block;
     height: 8vh;
     width: 8vh;
